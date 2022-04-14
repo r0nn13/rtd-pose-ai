@@ -1,7 +1,7 @@
 Connecting with the API
-====
+=====
 
-### Linking to the Pose Camera app
+## Linking to the Pose Camera app
 
 ​Pose Camera has now (as of 0.8.24) been enabled to accept both Universal Links and custom Url links. This means developers can launch and configure the Pose Camera app from their own apps, from url links, or even by providing users a QR-code to scan.
 

@@ -1,11 +1,11 @@
 Adding PoseAI input to Unity
-===
+=====
 
-### Copy the PoseAI UnityAPI files
+## Copy the PoseAI UnityAPI files
 
 Download and copy the PoseAI UnityAPI folder of scripts into your project's Assets folder
 
-### Disable redundant controllers on the PlayerArmature
+## Disable redundant controllers on the PlayerArmature
 
 Select the PlayerArmature in the sample project and disable or delete the AnimationController, ThirdPersonCharacterController, and PlayerInput controllers.
 
@@ -13,7 +13,7 @@ We will replace the functionality of these controllers with the PoseAI controlle
 
 Make sure to keep the CharacterController component, as we will use that for player movement.
 
-### Add a PoseAI SourceDirect component to the armature
+## Add a PoseAI SourceDirect component to the armature
 
 Select the Player Armature, click on Add Component and add a PoseAI SourceDirect component to the armature.
 
@@ -23,7 +23,7 @@ Make sure the Rig Type is set to Unity for the Sample project mesh. We also prov
 
 The _Mode_ should be set to either _Room_ or _Portrait_. For Room mode you will film from your phone in landscape orientation and capture a wider space, although you need to back further away to be fully in the frame. For Portrait mode, you will film from portrait orientation. This allows you to be closer, helpful in smaller rooms, but means you can't capture much lateral movement.
 
-### Add the PoseAI AnimatorComponent
+## Add the PoseAI AnimatorComponent
 
 Select the Armature again and click on Add Component. This component allows you to use live player input to animate the character.
 
@@ -33,13 +33,13 @@ _UseUpperBodyOnly_ only animates the upper body and works well when combined wit
 
 _MoveRootSideways_ moves the root in response the live capture movement in the camera frame (i.e. if the player moves side to side). This should be on if you are using full body animation and also not using the CharacterController. A use case would be showing a dance move on screen.
 
-### Enable IK Pass on the Animator asset
+## Enable IK Pass on the Animator asset
 
 Our animation component uses the IK input functions to override the standard animations, while allowing easy blending.
 
 Make sure the animator component points to the Starter Assets Third Person (Animator Controller). Open the component, click on the gear symbol in the base layer and enable the "IK Pass".
 
-### Add the PoseAICharacterController
+## Add the PoseAICharacterController
 
 Select the PlayerArmature again and Add Component. This controller is similar to the starter controller but instead of using keyboard/mouse input, it uses motion capture input to move the character.
 
@@ -51,7 +51,7 @@ There are a lot of configuration options but we suggest trying the default setti
 -   Jump in RL to jump in game
 -   Crouching in RL is picked up but the starter animation pack does not include crouching so currently it only creates a text output in console.
 
-### Connect Pose Camera on your phone
+## Connect Pose Camera on your phone
 
 Open the PoseCamera app on your phone. Go to settings (gear icon):
 

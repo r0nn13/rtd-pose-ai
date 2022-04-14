@@ -49,9 +49,7 @@ Our AI does not use desktop / console resources.  Our software is targetted towa
 How does Pose Camera compare to other Mocap systems?
 ----------------
 Pose Camera is designed to accessibly provide motion input without special hardware, using only a smartphone and its normal camera feed.   Strapping on a mocap suit or using eight depth-sensing cameras will likely provide more accurate input.  
-
 Pose Camera is also designed to provide live motion input.  Systems which process a complete session afterwards can allow more robust smoothing techniques and error correction.
-
 Pose Camera AI runs fully on the phone, in real-time.  We stripped down our powerful state-of-the-art research model to provide the best balance of speed and accuracy.  Other systems which process on a server or workstation can run larger, more computationally and memory expensive models which may provide higher accuracy or recognize more unusual poses.  
 
 Why doesn't my character's hands meet like that of my mocap subject?

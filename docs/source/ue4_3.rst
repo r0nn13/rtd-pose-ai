@@ -1,22 +1,16 @@
+UE4 with LiveLink Manual Connection
+=====
 
-Animating in Unreal Engine
-===
-This page contains a complete guide to animating characters using PoseAI and Unreal Engine.
-
-### Table of contents
-1. [Connecting to UE4 with the LiveLink GUI](#introduction)
-2. [Animating a UE4 Character](#paragraph1)
-3. [Recording animations](#paragraph2)
 
 Connecting to UE4 with the LiveLink GUI
 -----------------------------
-### Install the UE4 LiveLink plugin
+## Install the UE4 LiveLink plugin
 
 Install the PoseAILiveLink plugin from the Unreal Marketplace or copy the folder into the ``[Your Project Name]/Plugins/ ``folder. Make sure the plugin is enabled from within the editor (Edit/Plugins). This may require restarting the project.
 
 Go to project settings->plugins->UDP Messaging. Make sure enable UDP transport is checked. If this is not available please enable Epic's UDP Messaging plugin from Edit->Plugins as LiveLink is unlikely to work without it.
 
-### NOTE: MacOS Unreal
+## NOTE: MacOS Unreal
 
 On MacOS the marketplace build of the Pose AI plugin may not work when installed as usual to the Engine/Plugins/Marketplace/ folder, and when enabled can prevent the Engine from opening a project.
 
@@ -24,7 +18,7 @@ A simple workaround is copying the PoseAILiveLink plugin folder instead to ``<yo
 
 We are trying to resolve this with Epic as we understand this may be a known issue within the engine.
 
-### Add a PoseAI LiveLink source
+## Add a PoseAI LiveLink source
 
 From the Unreal Engine menu select Window/LiveLink. From the LiveLink popup window add a Source->Pose AI App.
 
@@ -32,13 +26,13 @@ Chose among the various configurations depending on use case. Make sure you sele
 
 Click OK when ready. PoseAI Mobile should be added to the first panel of LiveLink.
 
-### Reduce default LiveLink buffer
+## Reduce default LiveLink buffer
 
 By default LiveLink buffers several frames of motion capture data. This can add latency to the input from Pose Camera. On a local network and with Pose Camera's in-app smoothing, we recommend reducing the buffer to 1 frame, and only if necessary increase the buffer.
 
 Click on the Pose AI mobile source in the top LiveLink panel and in the right details, under Buffer-Settings reduce "Max Number of Frame to Buffered" to 1.
 
-### Connect Pose Camera on your phone
+## Connect Pose Camera on your phone
 
 Open the PoseCamera app on your phone. Go to settings (gear icon) and input the IP address of the computer running the Unreal Engine and the port number selected when configuring LiveLink (the first panel of LiveLink will display the first local host IP address detected but if you have multiple adapters this may not be correct). Make sure your phone and the computer are on the same local network.
 
@@ -46,13 +40,13 @@ Close settings on your phone. The app should show the IP address you entered at 
 
 Unsuccessful? Try our troubleshooting page for tips resolving common connection issues
 
-### Begin the stream
+## Begin the stream
 
 Once connected the phone app should offer "Tap to Stream". Tap and the phone should switch to camera preview mode.
 
 Within Unreal you should see your phone's name in the bottom LiveLink panel and will show green when it is streaming detected poses.
 
-### Aim your camera at the subject
+## Aim your camera at the subject
 
 Place your phone appropriately to capture your target space with an unobstructed view. For example, in Desktop mode you might place your phone underneath your monitor or in Room mode on your AV console. You can toggle between front/back camera. You can even aim your phone camera at media playing on another device.
 
@@ -62,39 +56,39 @@ Make sure the camera can see most of the target. For Room or Portrait ensure the
 Animating a UE4 Character
 --------
 
-### Create an Animation Blueprint
+## Create an Animation Blueprint
 
 Create or modify an animation blueprint for your character's skeleton (i.e. UE4_Mannequin).
 
-### Add a Live Link Pose node
+## Add a Live Link Pose node
 
 In the AnimGraph of the animation blueprint add a Live Link Pose node and connect to the blueprint's output pose. Set the LiveLink source on the node (i.e. "My Iphone").*
 
 * If you do not see a source then you have not connected LiveLink successfully. Please review our tips for connecting Pose Camera or read the official Unreal Documentation for LiveLink.
 
-### Set retargetting for PoseAI
+## Set retargetting for PoseAI
 
 Select the Live Link Pose node and in details set retarget asset to "PoseAILiveLinkRetargetRotations" - this preserves your mesh asset's skeletal dimensions but uses the streamed joint rotations and root transform to animate.
 
-### (Optional) Customize retargetting
+## (Optional) Customize retargetting
 
 For better results you can create a custom instance of "PoseAILiveLinkRetargetRotations" for each character, setting different values for the scaleTranslation variable and assign to the the character's individual animation blueprint. This variable adjusts the root motion and pelvis height to accommodate different sized skeletons and may help avoid the mesh penetrating the ground.
 
-### Compile
+## Compile
 
 Compile and, if you are currently streaming, the preview skeleton should follow the PoseCamera movements.
 
-### Set your character to use the animation blueprint
+## Set your character to use the animation blueprint
 
 Open your character blueprint and select the Mesh component. In the Details panel set Animation/Animation Mode to Use Animation Blueprint. Set Animation/Anim Class to the blueprint you created or modified in the first step.
 
 Your character should now be driven by Pose Camera at runtime.
 
-### (Optional) Add the LiveLink Skeletal Animation component to Character
+## (Optional) Add the LiveLink Skeletal Animation component to Character
 
 In the components panel click on Add Component and add the LiveLink Skeletal Animation component to your character. This will also update the character in the editor with the animation stream. Check the character viewport while streaming to see your character animate.
 
-### (Optional) Create a blend for Desktop camera mode
+## (Optional) Create a blend for Desktop camera mode
 
 ![](https://static.wixstatic.com/media/9e8b9f_ec07e43c85ca44868bb35d8c9e009c93~mv2.png =600x)
 If you are using Desktop camera mode, Pose Camera will only stream the upper body. You can use blend pose to create the appropriate animation for the lower body, for example idle standing or a sitting animation. If the stream is in mirror mode, you will likely want to rotate the lower body by 180 degrees as well.
@@ -104,35 +98,35 @@ Here is an example of an AnimGraph which can switch between animation modes base
 Recording animations
 -----------------
 
-### Setup plugin and character
+## Setup plugin and character
 
 Follow the steps outlined in this documentation to setup the plugin and your character using UE4 or Mixamo skeletons (Please see the note below regarding MetaHuman rigs).
 
-### Add the LiveLink component to your character
+## Add the LiveLink component to your character
 
 If you did not already do the optional step in the character setup guide, add the LiveLink Skeletal Animation component to your character by clicking on +Add Component in the components panel.
 
 This will allow you to record animations while in the editor (otherwise animations will only record while in Play mode).
 
-### Add your character to the world
+## Add your character to the world
 
 Drag your character blueprint into the viewport to add it to the level.
 
-### Record with Take Recorder
+## Record with Take Recorder
 
 Open Window/Cinematics/Take Recorder. Select +Source -> From Actor -> YourCharacter (from the previous step).
 
 Click on the red circle at the top of Take Recorder to begin recording (there will be a countdown). When finished click the square stop button.
 
-### Open your animation and inspect
+## Open your animation and inspect
 
 By default each Take will be saved in subdirectories under Contents/Cinematics. Find the folder for your take, open the Animation subfolder and you should find an animation sequence capturing your streamed animation.
 
-### (Optional) Export your animation to FBX
+## (Optional) Export your animation to FBX
 
 Unreal allows you to export animation sequences into FBX, to allow editing with other software. From the menu select Asset->Export to FBX->Animation Data
 
-### [Note] Recording MetaHuman rig animations
+## [Note] Recording MetaHuman rig animations
 
 While the plugin successfully animates MetaHuman rigs at runtime and in the editor, currently using the Unreal Engine's Take Recorder to record MetaHuman animations via our livelink plugin can be problematic, with artificats and warping of some transforms.
 
