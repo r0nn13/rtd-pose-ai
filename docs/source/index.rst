@@ -1,5 +1,6 @@
+*****
 Welcome to the PoseAI documentation!
-===================================
+*****
 
 **PoseAI** enables developers to easily integrate state-of-the-art pose estimation with their applications.
 
