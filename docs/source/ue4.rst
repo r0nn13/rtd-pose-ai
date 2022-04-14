@@ -1,4 +1,4 @@
-
+===============================
 Using PoseAI with Unreal Engine
 ===============================
 
@@ -7,7 +7,7 @@ Using PoseAI with Unreal Engine
 For conventional in-editor LiveLink use, see `here <https://www.poseai.co.uk/ue4-livelink-manual>`_. Continue below for the basics of adding Pose AI to an existing project.
 
 Connecting with UE4 with our helper nodes
------------------------------------------
+**************************************
 
 Install the PoseAI UE4 LiveLink plugin
 --------------------------------------
@@ -85,7 +85,7 @@ In your character blueprint, select the PoseAIMovementComponent. You should have
 You can also drag special StepCounter objects from the component, such as "Footsteps", which tracks the number of step events and generates an input speed which can be fed into the conventional character controller. Please see our advanced demo for an example.
 
 Animating a character 
-----------------------
+**************************************
 
 Create an Animation Blueprint
 -----------------------------
@@ -140,7 +140,7 @@ If you are using Desktop camera mode, Pose Camera will only stream the upper bod
 Here is an example of an AnimGraph which can switch between animation modes based on boolean values.
 
 Recording animations
---------------------
+**************************************
 
 Setup plugin and character
 --------------------------

@@ -14,12 +14,13 @@ Contents
 --------
 
 .. toctree::
-
-   faq
+   
    ue4
    ue4_3
    ue4_2
    unity
    info
+   troubleshooting
    beta
+   faq
    

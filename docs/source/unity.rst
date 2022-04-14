@@ -52,7 +52,6 @@ Select the PlayerArmature again and Add Component. This controller is similar to
 
 There are a lot of configuration options but we suggest trying the default settings first. We start by enabling multiple ways to trigger movement, but this can be configured through defaults or in the script.
 
-
 * You can lean to the side or twist your upper body to have your character rotate.
 * While the character is on the ground, you can jog in place and/or pump your arms up and down to move forward. Depending on how fast you jog or pump, you will either walk forward or sprint forward
 * If you want to fly, flap your arms or do chest expansions. Holding your arms out (i.e. T-position) will put you in glide mode, slowing your fall but giving you forward speed. Bring your arms back to your sides to plummet. You can still lean or twist to bank into turns.

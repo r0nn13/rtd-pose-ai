@@ -3,7 +3,7 @@ Using PoseAI with Unreal Engine (Manual Connection)
 ===================================================
 
 Connecting to UE4 with the LiveLink GUI
----------------------------------------
+**************************************
 
 Install the UE4 LiveLink plugin
 -------------------------------
@@ -61,7 +61,7 @@ Place your phone appropriately to capture your target space with an unobstructed
 Make sure the camera can see most of the target. For Room or Portrait ensure the full body, head to feet, is visible. For Desktop mode ensure the camera can see the head to pelvis and ideally both elbows. The segmented human icon overlaying camera preview turns blue when a subject is visible and shows which limbs are currently poseable.
 
 Animating a UE4 Character
--------------------------
+*************************
 
 Create an Animation Blueprint
 -----------------------------
@@ -116,7 +116,7 @@ If you are using Desktop camera mode, Pose Camera will only stream the upper bod
 Here is an example of an AnimGraph which can switch between animation modes based on boolean values.
 
 Recording animations
---------------------
+********************
 
 Setup plugin and character
 --------------------------
