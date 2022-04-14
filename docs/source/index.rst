@@ -1,13 +1,9 @@
-Welcome to Lumache's documentation!
+Welcome to the PoseAI documentation!
 ===================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+**PoseAI** enables developers to easily integrate state-of-the-art pose estimation with their applications.
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+Tis is a complete guide for using PoseAI with UE4, UE5, Unity or via the developers' API.
 
 .. note::
 
@@ -18,5 +14,11 @@ Contents
 
 .. toctree::
 
-   usage
-   api
+   faq
+   ue4
+   ue4_3
+   ue4_2
+   unity
+   info
+   beta
+   
